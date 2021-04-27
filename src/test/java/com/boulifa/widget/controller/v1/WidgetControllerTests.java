@@ -41,7 +41,7 @@ public class WidgetControllerTests {
 	
 	@Test
 	@Order(1)
-	public void createWidget_HappyPath() {
+	public void createWidget_WhenHappyPath() {
 		Widget widget = new Widget();
 		widget.setCenterX(0);
 		widget.setCenterY(0);
@@ -61,7 +61,7 @@ public class WidgetControllerTests {
 	
 	@Test
 	@Order(2)
-	public void createWidget_InvalidWidget() {
+	public void createWidget_WhenInvalidWidget() {
 		Widget widget = new Widget();
 		widget.setCenterX(0);
 		widget.setCenterY(0);
@@ -81,7 +81,7 @@ public class WidgetControllerTests {
 	
 	@Test
 	@Order(3)
-	public void createWidget_withoutDepthZ() {
+	public void createWidget_WhenWithoutDepthZ() {
 		Widget widget = new Widget();
 		widget.setCenterX(0);
 		widget.setCenterY(0);
@@ -101,7 +101,7 @@ public class WidgetControllerTests {
 	
 	@Test
 	@Order(4)
-	public void getWidget_HappyPath() {
+	public void getWidget_WhenHappyPath() {
 		
 		try {
 			mockMvc.perform(get("/v1/1")
@@ -115,7 +115,7 @@ public class WidgetControllerTests {
 	
 	@Test
 	@Order(5)
-	public void getWidget_WidgetNotExistant() {
+	public void getWidget_WhenWidgetNotExistant() {
 		
 		try {
 			mockMvc.perform(get("/v1/10")
@@ -128,7 +128,7 @@ public class WidgetControllerTests {
 	
 	@Test
 	@Order(6)
-	public void getAllWidget_HappyPath() {
+	public void getAllWidget_WhenHappyPath() {
 		
 		try {
 			mockMvc.perform(get("/v1/all")
@@ -142,7 +142,7 @@ public class WidgetControllerTests {
 	
 	@Test
 	@Order(7)
-	public void editWidget_HappyPath() {
+	public void editWidget_WhenHappyPath() {
 		Widget widget = new Widget();
 		widget.setCenterX(7);
 		widget.setCenterY(7);
@@ -163,7 +163,7 @@ public class WidgetControllerTests {
 	
 	@Test
 	@Order(8)
-	public void deleteWidget_HappyPath() {
+	public void deleteWidget_WhenHappyPath() {
 		
 		try {
 			mockMvc.perform(delete("/v1/1")
