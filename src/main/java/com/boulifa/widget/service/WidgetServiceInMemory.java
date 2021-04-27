@@ -41,7 +41,8 @@ public class WidgetServiceInMemory implements WidgetService {
 		var beginningIndex = pageSize * pageNo >= widgets.size() ? 0 : pageSize * pageNo;
 		var endIndex = pageSize * pageNo + pageSize >= widgets.size() ? widgets.size() : pageSize * pageNo + pageSize;
 		if (widgets.isEmpty()) {
-			beginningIndex = endIndex = 0;
+			beginningIndex = 0;
+			endIndex = 1;
 		}
 		
 		widgets.sort((w1, w2) -> w1.getDepthZ().compareTo(w2.getDepthZ()));

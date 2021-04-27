@@ -44,5 +44,5 @@ mvn spring-boot:run -Dspring.profiles.active=database
 a postman collection, is available in the root poject folder to test the API manually. To use it download Postman [here](https://www.postman.com/downloads/) and import the json collection file.
 # Improvement
 - Use Spring WebFlux
-- Improve testing coverage
+- Improve testing coverage (I am aware that my coverage does not match the criteria, I did some of each type of test to showcase my abilities only)
 - Implement Area filtering 

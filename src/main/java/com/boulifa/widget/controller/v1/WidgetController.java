@@ -46,7 +46,7 @@ public class WidgetController {
 	}
 	
 	@GetMapping("/{id}")
-	@ResponseStatus(HttpStatus.FOUND)
+	@ResponseStatus(HttpStatus.OK)
 	public Widget getWidget(@PathVariable Long id) {
 		logger.debug("Fetching Widget #{}", id);
 		return widgetService.getWidget(id);
@@ -54,14 +54,14 @@ public class WidgetController {
 	
 	@GetMapping("/all")
 	@ResponseStatus(HttpStatus.OK)
-	public List<Widget> getAllWidgets(@RequestParam(defaultValue = "0") Integer pageNo, @RequestParam(defaultValue = "10") Integer pageSize) {
+	public List<Widget> getAllWidgets(@RequestParam(defaultValue = "0") Integer pageNumber, @RequestParam(defaultValue = "10") Integer pageSize) {
 		pageSize = pageSize > this.defaultPageSize ? this.defaultPageSize : pageSize;
-		logger.debug("Fetching widgets: Page {} (Widgets per page {})", pageNo, pageSize);
-		return widgetService.getAllWidgets(pageNo, pageSize);
+		logger.debug("Fetching widgets: Page {} (Widgets per page {})", pageNumber, pageSize);
+		return widgetService.getAllWidgets(pageNumber, pageSize);
 	}
 	
 	@PutMapping("/{id}")
-	@ResponseStatus(HttpStatus.OK)
+	@ResponseStatus(HttpStatus.ACCEPTED)
 	@Transactional
 	public Widget editWidget(@RequestBody Widget updatedWidget, @PathVariable Long id) {
 		logger.debug("Editing Widget #{}", id);		
@@ -69,6 +69,7 @@ public class WidgetController {
 	}
 	
 	@DeleteMapping("/{id}")
+	@ResponseStatus(HttpStatus.OK)
 	@Transactional
 	public void deleteWidget(@PathVariable Long id) {
 		logger.debug("Deleting Widget #{}", id);
